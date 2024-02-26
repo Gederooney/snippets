@@ -1,3 +1,1 @@
-# snippets
-# snippets
-# snippets
+# tailwindcss snippets
