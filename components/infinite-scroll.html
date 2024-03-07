@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { clifford: "#da373d" },
+            fontFamily: { lexend: ["'Lexend'", "sans-serif"] }
+          }
+        }
+      };
+    </script>
+    <style>
+      .first {
+        animation: scroll linear 6s infinite;
+      }
+      .fade {
+        background-image: linear-gradient(
+          90deg,
+          #282c34,
+          transparent 20%,
+          transparent 80%,
+          #282c34
+        );
+      }
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+    </style>
+  </head>
+  <body class="font-lexend bg-[#282c34]">
+    <div class="p-12 pt-24 mx-auto w-[34rem]">
+      <div class="mx-auto space-y-16">
+        <div class="">
+          <h1 class="mx-auto text-2xl leading-snug text-center text-[#EFECEC]">
+            Scroll Infini avec <span class="block text-cneter text-[#FC6736] text-[3rem] font-bold">Tailwind & CSS</span>
+          </h1>
+        </div>
+        <div class="relative flex w-full gap-0 overflow-hidden">
+          <div class="flex gap-0 first">
+            <div
+              class="w-32 p-1 overflow-hidden rounded-lg aspect-square drop-shadow-xl"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1706290047883-64294c7e11c3?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt=""
+                class="object-cover object-center w-full h-full rounded-lg"
+              />
+            </div>
+            <div
+              class="w-32 p-1 overflow-hidden rounded-lg aspect-square drop-shadow-xl"
+            >
+              <img
+              src=https://images.unsplash.com/photo-1628329567705-f8f7150c3cff?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="" class="object-cover object-center w-full h-full rounded-lg"
+              />
+            </div>
+            <div
+              class="w-32 p-1 overflow-hidden rounded-lg aspect-square drop-shadow-xl"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1613040809024-b4ef7ba99bc3?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt=""
+                class="object-cover object-center w-full h-full rounded-lg"
+              />
+            </div>
+            <div
+              class="w-32 p-1 overflow-hidden rounded-lg aspect-square drop-shadow-xl"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1624814448280-0f2d7d399b07?q=80&w=2936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt=""
+                class="object-cover object-center w-full h-full rounded-lg"
+              />
+            </div>
+          </div>
+          <div class="flex gap-0 first">
+            <div
+              class="w-32 p-1 overflow-hidden rounded-lg aspect-square drop-shadow-xl"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1706290047883-64294c7e11c3?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt=""
+                class="object-cover object-center w-full h-full rounded-lg"
+              />
+            </div>
+            <div
+              class="w-32 p-1 overflow-hidden rounded-lg aspect-square drop-shadow-xl"
+            >
+              <img
+              src=https://images.unsplash.com/photo-1628329567705-f8f7150c3cff?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="" class="object-cover object-center w-full h-full rounded-lg"
+              />
+            </div>
+            <div
+              class="w-32 p-1 overflow-hidden rounded-lg aspect-square drop-shadow-xl"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1613040809024-b4ef7ba99bc3?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt=""
+                class="object-cover object-center w-full h-full rounded-lg"
+              />
+            </div>
+            <div
+              class="w-32 p-1 overflow-hidden rounded-lg aspect-square drop-shadow-xl"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1624814448280-0f2d7d399b07?q=80&w=2936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt=""
+                class="object-cover object-center w-full h-full rounded-lg"
+              />
+            </div>
+          </div>
+          <div class="absolute inset-0 z-[2] fade"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

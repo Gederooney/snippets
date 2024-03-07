@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap"
+      rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { clifford: '#da373d' },
+            fontFamily: { lexend: ["'Lexend'", 'sans-serif'] },
+          },
+        },
+      }
+    </script>
+    <style></style>
+  </head>
+<body class="font-lexend bg-[#282c34]">
+	<div class="max-w-80 mx-auto py-12">
+		<div class="mx-auto space-y-6">
+			<div class="">
+				<h1 class="text-gray-50 text-center">
+					Confirmer votre email
+				</h1>
+				<p class="text-sm font-light leading-none text-center text-gray-400">
+					Entrez le code à 4 chiffres que nous avons envoyé à <a class="text-[#fc6736]" href="mailto:mail@mail.com">mail@mail.com</a>
+				</p>
+			</div>
+			<form action="" class="flex mx-auto justify-center items-center gap-2" autocomplete="off" id="validate">
+				<input type="text" name="digit-1" id="" class="inline-flex items-center justify-center bg-transparent border rounded-md border-gray-50/20 w-12 h-12 text-sm font-light text-center focus:outline-none focus:border-[#fc6736] text-gray-50">
+				<input type="text" name="" id="" class="inline-flex items-center justify-center bg-transparent border rounded-md border-gray-50/20 w-12 h-12 text-sm font-light text-center focus:outline-none focus:border-[#fc6736] text-gray-50">
+				<input type="text" name="" id="" class="inline-flex items-center justify-center bg-transparent border rounded-md border-gray-50/20 w-12 h-12 text-sm font-light text-center focus:outline-none focus:border-[#fc6736] text-gray-50">
+				<input type="text" name="" id="" class="inline-flex items-center justify-center bg-transparent border rounded-md border-gray-50/20 w-12 h-12 text-sm font-light text-center focus:outline-none focus:border-[#fc6736] text-gray-50">
+			</form>
+
+			<div class="">
+				<p class="text-sm font-light leading-none text-center text-gray-400">
+					Le code est encorre valide pour: 
+					<span class="text-[#fc6736]">
+						<span id="hour">00</span>
+						<span>:</span>
+						<span id="minutes">00</span>
+						<span>:</span>
+						<span id="seconds">00</span>
+					</span>
+				</p>
+			</div>
+		</div>
+	</div>
+	<script>
+		const makeCountDown = (endTime) => {
+			let interval = undefined;
+			const hours = document.getElementById('hour')
+			const minutes = document.getElementById('minutes')
+			const seconds = document.getElementById('seconds')
+
+			const update = () => {
+				const now = new Date()
+				const timeLeft = endTime - now.getTime()
+
+				if (timeLeft <= 0)
+				{
+					clearInterval(interval)
+					hours.textContent = '00'
+					minutes.textContent = '00'
+					seconds.textContent = '00'
+					return 
+				}
+
+				const hoursLeft = Math.floor(timeLeft / (1000 * 60 * 60))
+          const minutesLeft = Math.floor(
+            (timeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          )
+          const secondsLeft = Math.floor((timeLeft % (1000 * 60)) / 1000)
+
+				hours.textContent = hoursLeft > 9 ? hoursLeft : '0' + hoursLeft
+				minutes.textContent = minutesLeft > 9 ? minutesLeft : '0' + minutesLeft
+
+				seconds.textContent = secondsLeft > 9 ? secondsLeft : '0' + secondsLeft
+			}
+
+			const clean = () => {
+				if (interval) clearInterval(interval)
+				window.removeEventListener('beforeunload', clean)
+			}
+
+			interval = setInterval(update, 1000)
+			window.addEventListener('beforeunload', clean)
+
+			update()
+		}
+	
+		class Validation {
+			constructor (formId) {
+				this.form = document.getElementById(formId)
+				this.fields = Array.from(document.querySelectorAll(`#${formId} > input[type="text"]`))
+
+				this.handleField = this.handleField.bind(this)
+			}
+
+			init (){
+				this.fields.forEach(this.handleField)
+				const endTime = new Date().getTime() + 300000
+				makeCountDown(endTime)
+			}
+
+			handleField(field, index){
+				field.addEventListener('keydown', (event) => {
+					const { keyCode } = event
+
+					if (keyCode === 8)
+					{
+						return true
+					}
+
+					if (keyCode >= 48 && keyCode <= 67) return true
+
+					if ((ctrlkey || metakey) && keyCode === 67) return true
+
+					if ((ctrlkey || metakey) && keyCode === 86) return true
+
+					event.preventDefault()
+					return false
+				})
+			
+				field.addEventListener('input', (event) => {
+					const { value } = field
+
+					if (value.length === 1 && index !== this.fields.length) this.fields[index + 1].focus()
+
+					else if (value.length === 0 && index !== 0)
+					this.fields[index - 1].focus()
+				})
+			}
+		}
+	
+		const validate = new Validation('validate')
+
+		window.onload = validate.init.bind(validate)
+	</script>
+</body>
+</html>
