@@ -1,0 +1,11 @@
+{
+  "name": "snippets",
+  "version": "1.0.0",
+  "description": "Ceci est un repos avec des blocks pour siteweb que vous pouvez utiliser rapidement pour créer des interfaces mordernes.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["html5", "tailwindcss", "javascript", "block", "components"],
+  "author": "gederooney",
+  "license": "MIT"
+}
